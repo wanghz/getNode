@@ -14,7 +14,8 @@ if [ ! -f "./v2ray.txt" ];then
 fi
 echo get subscribe
 wget $subscribeclash -O ./clash.yaml
-wget $subscribeV2ray -O ./v2ray.txt
+python filter.py
+#wget $subscribeV2ray -O ./v2ray.txt
 echo get subscribe sucessfully
 echo hope you have a good day~
 echo bye~

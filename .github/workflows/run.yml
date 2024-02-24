@@ -19,15 +19,15 @@ jobs:
           sh ./run.sh
       - name: Commit Changes
         run: |
-         git config --global user.email flik@92coco.cn
-         git config --global user.name Flik
+         git config --global user.email jiangnanhao@protonmail.com
+         git config --global user.name papertiger
          git add .
          git commit -m"由github actions推送,日期:`date`"
          git pull --rebase
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.TOKEN }}
+          github_token: ${{ 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 }}
           branch: main
           force_with_lease: true
           directory: .

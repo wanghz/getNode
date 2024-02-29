@@ -1,0 +1,26 @@
+# name属性用来指定这个工作流的名字
+name: Download The SUBSCRIBE
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-csjs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Commit Changes
+        run: |
+         git config --global user.email flik@92coco.cn
+         git config --global user.name Flik
+         git reset --soft HEAD~1 
+         git commit -m"由github actions推送,日期:`date`"
+         git pull --rebase
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: main
+          force_with_lease: true
+          directory: .
